@@ -9,6 +9,8 @@ class BooksController < ApplicationController
   def get_info
     isbn = params[:isbn]
     @book = Book.find_by(isbn: isbn)
+
+    if @book
     @book_info = get_book_info_from_google(isbn)
     @book = Book.new(isbn: isbn)
 
