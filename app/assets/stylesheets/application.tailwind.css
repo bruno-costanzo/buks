@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .body {
+    @apply bg-gray-100 text-gray-800 min-h-screen;
+  }
+  .main {
+    @apply mx-auto p-4 sm:p-6 md:p-8 lg:max-w-4xl xl:max-w-6xl;
+  }
+
+  .book-card {
+    @apply bg-cover bg-center rounded-lg shadow-md overflow-hidden md:w-64 h-auto;
+  }
+  .book-text {
+    @apply bg-white bg-opacity-90 py-2 px-4 m-2 rounded text-gray-800;
+  }
+  .book-title {
+    @apply text-lg font-bold;
+  }
+  .book-author, .book-isbn, .book-published-date, .book-pages {
+    @apply text-sm;
+  }
+  .book-description {
+    @apply text-xs;
+  }
+}

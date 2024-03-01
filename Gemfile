@@ -74,3 +74,5 @@ end
 gem 'httparty', '~> 0.21.0'
 
 gem 'devise', '~> 4.9'
+
+gem "tailwindcss-rails", "~> 2.3"

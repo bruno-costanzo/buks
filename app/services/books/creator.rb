@@ -17,13 +17,19 @@ module Books
     def book_params
       {
         isbn:,
-        title: volume_info['title'],
-        description: volume_info['description'],
-        image_url: volume_info['imageLinks']['thumbnail'],
-        small_image_url: volume_info['imageLinks']['smallThumbnail'],
-        published_date: volume_info['publishedDate'],
-        pages: volume_info['pageCount']
+        title: dig_volume_info(%w[title]),
+        description: dig_volume_info(%w[description]),
+        image_url: dig_volume_info(%w[imageLinks thumbnail]),
+        small_image_url: dig_volume_info(%w[imageLinks smallThumbnail]),
+        published_date: dig_volume_info(%w[publishedDate]),
+        pages: dig_volume_info(%w[pageCount]),
       }
+    end
+
+    def dig_volume_info(keys)
+      keys.reduce(volume_info) do |memo, key|
+        memo&.dig(key)
+      end
     end
 
     def volume_info
